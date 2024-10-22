@@ -1,0 +1,14 @@
+export { default as Instagram } from "virtual:icons/bxl/instagram";
+export { default as Mail } from "virtual:icons/raphael/mail";
+export { default as Youtube } from "virtual:icons/bxl/youtube";
+export { default as Tiktok } from "virtual:icons/bxl/tiktok";
+export { default as Tumblr } from "virtual:icons/bxl/tumblr";
+export { default as Facebook } from "virtual:icons/bxl/facebook";
+export { default as Steam } from "virtual:icons/bxl/steam";
+export { default as Github } from "virtual:icons/bxl/github";
+export { default as Pinterest } from "virtual:icons/bxl/pinterest";
+export { default as Snapchat } from "virtual:icons/bxl/snapchat";
+export { default as Discord } from "virtual:icons/bxl/discord-alt";
+export { default as Telegram } from "virtual:icons/bxl/telegram";
+export { default as Vsco } from "virtual:icons/simple-icons/vsco";
+export { default as Doncezart } from "virtual:icons/ri/box-1-line";

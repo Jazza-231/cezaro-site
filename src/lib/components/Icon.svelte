@@ -1,66 +1,36 @@
 <script>
-    export let data
-    import Instagram from 'virtual:icons/bxl/instagram'
-    import Mail from 'virtual:icons/raphael/mail'
-    import Youtube from 'virtual:icons/bxl/youtube'
-    import Tiktok from 'virtual:icons/bxl/tiktok'
-    import Tumblr from 'virtual:icons/bxl/tumblr'
-    import Facebook from 'virtual:icons/bxl/facebook'
-    import Steam from 'virtual:icons/bxl/steam'
-    import Github from 'virtual:icons/bxl/github'
-    import Pinterest from 'virtual:icons/bxl/pinterest'
-    import Snapchat from 'virtual:icons/bxl/snapchat'
-    import Discord from 'virtual:icons/bxl/discord-alt'
-    import Telegram from 'virtual:icons/bxl/telegram'
-    import Vsco from 'virtual:icons/simple-icons/vsco'
-    import Doncezart from 'virtual:icons/ri/box-1-line'
-</script>
-
-<div class="container">
-    {#if data.type=="INSTAGRAM"}<div class="bg instagram">
-        <Instagram style="color: white; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 75%; height: 75%; object-fit: cover;" />
-    </div>{/if}
-    {#if data.type=="MAIL"}<div class="bg mail">
-        <Mail style="color: white; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 75%; height: 75%; object-fit: cover;" />
-    </div>{/if}
-    {#if data.type=="YOUTUBE"}<div class="bg youtube">
-        <Youtube style="color: white; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 75%; height: 75%; object-fit: cover;" />
-    </div>{/if} 
-    {#if data.type=="TIKTOK"}<div class="bg tiktok">
-        <Tiktok style="color: white; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 75%; height: 75%; object-fit: cover;" />
-    </div>{/if}
-    {#if data.type=="TUMBLR"}<div class="bg tumblr">
-        <Tumblr style="color: white; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 75%; height: 75%; object-fit: cover;" />
-    </div>{/if}
-    {#if data.type=="FACEBOOK"}<div class="bg facebook">
-        <Facebook style="color: white; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 75%; height: 75%; object-fit: cover;" />
-    </div>{/if}
-    {#if data.type=="STEAM"}<div class="bg steam">
-        <Steam style="color: white; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 75%; height: 75%; object-fit: cover;" />
-    </div>{/if}
-    {#if data.type=="GITHUB"}<div class="bg github">
-        <Github style="color: white; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 75%; height: 75%; object-fit: cover;" />
-    </div>{/if}
-    {#if data.type=="PINTEREST"}<div class="bg pinterest">
-        <Pinterest style="color: white; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 75%; height: 75%; object-fit: cover;" />
-    </div>{/if}
-    {#if data.type=="SNAPCHAT"}<div class="bg snapchat">
-        <Snapchat style="color: white; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 75%; height: 75%; object-fit: cover;" />
-    </div>{/if}
-    {#if data.type=="DISCORD"}<div class="bg discord">
-        <Discord style="color: white; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 75%; height: 75%; object-fit: cover;" />
-    </div>{/if}
-    {#if data.type=="TELEGRAM"}<div class="bg telegram">
-        <Telegram style="color: white; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 75%; height: 75%; object-fit: cover;" />
-    </div>{/if}
-    {#if data.type=="VSCO"}<div class="bg vsco">
-        <Vsco style="color: white; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 75%; height: 75%; object-fit: cover;" />
-    </div>{/if}
-    {#if data.type=="DONCEZART"}<div class="bg doncezart">
-        <Doncezart style="color: white; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 75%; height: 75%; object-fit: cover;" />
-    </div>{/if}
+    export let data;
+    import * as Icons from "$lib/components/Icons.js";
+ 
+    const iconMap = {
+       INSTAGRAM: Icons.Instagram,
+       MAIL: Icons.Mail,
+       YOUTUBE: Icons.Youtube,
+       TIKTOK: Icons.Tiktok,
+       TUMBLR: Icons.Tumblr,
+       FACEBOOK: Icons.Facebook,
+       STEAM: Icons.Steam,
+       GITHUB: Icons.Github,
+       PINTEREST: Icons.Pinterest,
+       SNAPCHAT: Icons.Snapchat,
+       DISCORD: Icons.Discord,
+       TELEGRAM: Icons.Telegram,
+       VSCO: Icons.Vsco,
+       DONCEZART: Icons.Doncezart,
+    };
+ </script>
+ 
+ <div class="container">
+    {#if iconMap[data.type]}
+       <div class="bg {data.type.toLowerCase()}">
+          <svelte:component
+             this={iconMap[data.type]}
+             style="color: white; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 75%; height: 75%; object-fit: cover;"
+          />
+       </div>
+    {/if}
     <h1>{data.title}</h1>
-</div>
+ </div>
 
 <style>
 .instagram {background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);}
