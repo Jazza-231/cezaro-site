@@ -2,17 +2,18 @@
     export let data;
     import * as Icons from "$lib/components/Icons.js";
 
-    function getIcon(type) {
-        const iconName = type.toUpperCase();
-        return Icons[iconName];
+    function toSentenceCase(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
     }
+
+    const Icon = Icons[toSentenceCase(data.type)]
 </script>
 
 <div class="container">
-    {#if getIcon(data.type)}
+    {#if Icon}
        <div class="bg {data.type.toLowerCase()}">
           <svelte:component
-             this={getIcon(data.type)}
+             this={Icon}
              style="color: white; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 75%; height: 75%; object-fit: cover;"
           />
        </div>
