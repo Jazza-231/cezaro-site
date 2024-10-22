@@ -1,36 +1,24 @@
 <script>
     export let data;
     import * as Icons from "$lib/components/Icons.js";
- 
-    const iconMap = {
-       INSTAGRAM: Icons.Instagram,
-       MAIL: Icons.Mail,
-       YOUTUBE: Icons.Youtube,
-       TIKTOK: Icons.Tiktok,
-       TUMBLR: Icons.Tumblr,
-       FACEBOOK: Icons.Facebook,
-       STEAM: Icons.Steam,
-       GITHUB: Icons.Github,
-       PINTEREST: Icons.Pinterest,
-       SNAPCHAT: Icons.Snapchat,
-       DISCORD: Icons.Discord,
-       TELEGRAM: Icons.Telegram,
-       VSCO: Icons.Vsco,
-       DONCEZART: Icons.Doncezart,
-    };
- </script>
- 
- <div class="container">
-    {#if iconMap[data.type]}
+
+    function getIcon(type) {
+        const iconName = type.toUpperCase();
+        return Icons[iconName];
+    }
+</script>
+
+<div class="container">
+    {#if getIcon(data.type)}
        <div class="bg {data.type.toLowerCase()}">
           <svelte:component
-             this={iconMap[data.type]}
+             this={getIcon(data.type)}
              style="color: white; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 75%; height: 75%; object-fit: cover;"
           />
        </div>
     {/if}
     <h1>{data.title}</h1>
- </div>
+</div>
 
 <style>
 .instagram {background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);}
